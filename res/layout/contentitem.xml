@@ -12,11 +12,11 @@
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
         android:layout_margin="10dp"
-        android:src="@drawable/ic_launcher" />
+        android:visibility="invisible"/>
 
     <LinearLayout
         android:id="@+id/linearlayout1"
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:layout_toRightOf="@+id/icon"
         android:layout_toLeftOf="@+id/linearlayout2"
@@ -54,7 +54,8 @@
                 android:text="车位数"
                 android:textAppearance="?android:attr/textAppearanceSmall"
                 android:textColor="@color/contents_text"
-                android:textSize="14dp" />
+                android:textSize="14dp" 
+                android:visibility="invisible"/>
             
             <TextView
                 android:id="@+id/count"
@@ -63,7 +64,8 @@
                 android:text="0/0"
                 android:textAppearance="?android:attr/textAppearanceSmall"
                 android:textColor="@color/contents_text"
-                android:textSize="14dp" />
+                android:textSize="14dp" 
+                android:visibility="invisible"/>
             
         </LinearLayout>
 

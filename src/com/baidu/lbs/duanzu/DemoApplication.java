@@ -26,9 +26,9 @@ import com.baidu.navisdk.BNaviEngineManager.NaviEngineInitListener;
 import com.baidu.navisdk.BaiduNaviManager;
 
 /**
- * 小猪短租应用类，用来共享定位结果，列表与地图检索结果数据
  * 
- * @author Lu.Jian
+ * 
+ * @author Wei, Vincent W., Xiong, Shun  
  * 
  */
 public class DemoApplication extends Application {

@@ -29,6 +29,7 @@ import com.baidu.mapapi.map.BaiduMap;
 import com.baidu.mapapi.map.BaiduMap.OnMarkerClickListener;
 import com.baidu.mapapi.map.BitmapDescriptor;
 import com.baidu.mapapi.map.BitmapDescriptorFactory;
+import com.baidu.mapapi.map.DotOptions;
 import com.baidu.mapapi.map.MapStatusUpdate;
 import com.baidu.mapapi.map.MapStatusUpdateFactory;
 import com.baidu.mapapi.map.MapView;
@@ -143,14 +144,14 @@ public class LBSMapActivity extends Activity {
 			public boolean onMarkerClick(Marker marker) {
 				DemoApplication app = (DemoApplication) getApplication();
 				List<ContentModel> list = app.getList();
-				Toast.makeText(context, "marker", Toast.LENGTH_SHORT).show();
 				for (ContentModel content : list) {
 					LatLng ll;
 					ll = new LatLng(content.getLatitude(),
 							content.getLongitude());
 					// same marker
-					if (DistanceUtil.getDistance(marker.getPosition(), ll) < 1e-6) {
-						Toast.makeText(context, "s marker", Toast.LENGTH_SHORT).show();
+					double dis = DistanceUtil.getDistance(marker.getPosition(), ll);
+					Toast.makeText(context, String.valueOf(dis), Toast.LENGTH_SHORT).show();
+					if (dis < 1) {
 						setView(content);
 						holder.item.setVisibility(View.VISIBLE);
 						break;
@@ -229,12 +230,10 @@ public class LBSMapActivity extends Activity {
 			mBaiduMap.addOverlay(oo);
 			String s = String.format("%d/%d", content.getOccupCount(),
 					content.getCount());
-			oo = new TextOptions()
-					.text(s)
-					.position(ll)
-					.fontSize(80)
-					.align(TextOptions.ALIGN_CENTER_VERTICAL,
-							TextOptions.ALIGN_BOTTOM);
+			oo = new DotOptions()
+					.center(ll)
+					.color(0x5500ffff)
+					.radius(30);
 			mBaiduMap.addOverlay(oo);
 			builder.include(ll);
 		}

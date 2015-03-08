@@ -50,9 +50,9 @@ import com.baidu.navisdk.BNaviEngineManager.NaviEngineInitListener;
 import com.baidu.navisdk.BaiduNaviManager;
 
 /**
- * 小猪短租首页tab类
  * 
- * @author Lu.Jian
+ * 
+ * @author Wei, Vincent W., Xiong, Shun  
  * 
  */
 public class MainActivity extends TabActivity {
@@ -532,36 +532,6 @@ public class MainActivity extends TabActivity {
 
 			JSONArray jsonArray = json.getJSONArray("contents");
 			if (jsonArray != null && jsonArray.length() <= 0) {
-				ContentModel contentt = new ContentModel();
-				contentt.setName("title");
-				contentt.setAddr("address");
-
-				contentt.setDistance("distance" + "米");
-
-				double la = 120.0;
-				double lo = 30.0;
-				contentt.setLatitude(la);
-				contentt.setLongitude(lo);
-
-				float r[] = new float[1];
-
-				if (app.currlocation != null) {
-					Location.distanceBetween(app.currlocation.getLatitude(),
-							app.currlocation.getLongitude(), la, lo, r);
-				}
-				contentt.setDistance((int) r[0] + "米");
-
-				// JSONObject jsonObject3 = jsonObject2.getJSONObject("ext");
-				// content.setPrice(jsonObject3.getString("dayprice"));
-				// content.setImageurl(jsonObject3.getString("mainimage"));
-				// content.setWebUrl(jsonObject3.getString("roomurl"));//
-				contentt.setPrice(9);
-				contentt.setCount(10);
-				contentt.setOwner("owner");
-				contentt.setOccupCount(2);
-				contentt.setIconStyleID("icon_style_id");
-
-				list.add(contentt);
 				Toast.makeText(context, "没有符合要求的数据", Toast.LENGTH_SHORT).show();
 			} else {
 				for (int i = 0; i < jsonArray.length(); i++) {
